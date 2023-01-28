@@ -1,5 +1,5 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
-import { getSession } from "next-auth/react";
+// import { getSession } from "next-auth/react";
 import { handleError } from "./ErrorHandler";
 import { APIResponse, ParamsType } from "./types";
 
@@ -26,15 +26,15 @@ class OrmBuilder {
                     "Content-Type": "application/json",
                     Accept: "application/json",
                 };
-                const session: any = await getSession();
-                if (session) {
-                    config.headers = {
-                        ...config.headers,
-                        Authorization: `${
-                            session?.accessToken?.token_type || "Bearer"
-                        } ${session?.accessToken?.access_token}`,
-                    };
-                }
+                // const session: any = await getSession();
+                // if (session) {
+                //     config.headers = {
+                //         ...config.headers,
+                //         Authorization: `${
+                //             session?.accessToken?.token_type || "Bearer"
+                //         } ${session?.accessToken?.access_token}`,
+                //     };
+                // }
                 return config;
             },
             async function (error) {
